@@ -1,0 +1,181 @@
+.scanner-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    height: 100vh;
+  } 
+  
+  .scan-box {
+    width: 80%;
+    height: 200px;
+    background: white;
+    border-radius: 10px;
+    border: 2px dashed #5DCAA9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .scan-box:hover {
+    transform: scale(1.02);
+  }
+  
+  .scan-icon {
+    font-size: 40px;
+    color: #5DCAA9;
+  }
+  
+  .scan-text {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  .scan-button {
+    width: 50%;
+    padding: 16px;
+    background: #5DCAA9;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .scan-button:hover {
+    background: #3c866f;
+  }
+  
+  .extra-options {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    gap: 10%;
+  }
+  
+  .option-btn {
+    width: 100%;
+    padding: 10px;
+    background: white;
+    border: 1px solid #5DCAA9;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #5DCAA9;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  .option-btn:hover {
+    background: #5DCAA9;
+    color: white;
+  }
+  
+  p.heads{
+    text-align: center;
+    font-size: 40px;  
+    font-family: "FSMeLight";
+    letter-spacing: 1px;
+    font-size: bold;
+    margin-bottom: 20px;
+    margin-top: -10px;
+  }
+
+  .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 5px 0;
+    }
+    
+    .line {
+      flex-grow: 1;
+      height: 1px;
+      width: 400px;
+      background-color: #ccc;
+    }
+    
+    .text {
+      color: #666;
+      font-size: 14px;
+      font-weight: 600;
+    }
+  
+    .add-medicine-button {
+      width: 50%;
+      padding: 17px;
+      background: #5DCAA9;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+  }
+  
+  .add-medicine-button:hover {
+      background: #3c866f;
+  }
+  
+  .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+  }
+  
+  .modal-content input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+  }
+  
+  .modal-buttons {
+      display: flex;
+      justify-content: space-between;
+  }
+  
+  .modal-buttons button {
+      padding: 8px 12px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+  
+  .modal-buttons button:first-child {
+      background: #5DCAA9;
+      color: white;
+  }
+  
+  .modal-buttons button:last-child {
+      background: #ccc;
+  }
+  

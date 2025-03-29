@@ -1,0 +1,163 @@
+.signup_container{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #6723BA, #AF98E0);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.signups{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 90vh;
+    border-radius: 25px;
+    background-color: #FFFFFF;
+    align-items: center;
+    justify-content: center;
+}
+
+p.head{
+    text-align: center;
+    font-size: 45px;  
+    font-family: "FSMeBold";
+    letter-spacing: 1px;
+    font-size: bold;
+    margin-bottom: -5px !important;
+}
+
+p{
+    text-align: center;
+    font-size: 13px;  
+    font-family: "FSMeLight";
+    letter-spacing: 1px;
+}
+
+.signup_form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup_form input{
+    margin: 10px 0;
+    width: 70%;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 15px;
+    background-color: #f2f8f7;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid rgb(236, 223, 223);
+}
+
+.signup_form button{
+    padding: 12px;
+    margin-top: 10px;
+    background: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 50%;
+    align-self: center;
+    transition: 0.3s ease-in;
+}
+.signup_form button:hover{
+    background: #159279;
+}
+
+.user_type_buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 40%;
+}
+
+.user_type_buttons button {
+    padding: 10px 20px;
+    border: 2px solid #1abc9c;
+    border-radius: 25px;
+    background: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+    color: black;
+    width: 100%;
+}
+
+.user_type_buttons button.selected {
+    background: #1abc9c;
+    color: white;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 0;
+  }
+  
+  .line {
+    flex-grow: 1;
+    height: 1px;
+    width: 200px;
+    background-color: #ccc;
+  }
+  
+  .text {
+    color: #666;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .alt_signup{
+    display: flex;
+    flex-direction: row;
+    gap: 30px
+  }
+
+  .google_signup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 40%;
+    padding: 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.google_signup:hover {
+    background: #f2f2f2;
+}
+
+.google_signup img {
+    width: 20px;
+    height: 20px;
+}
+
+p a{
+    color: #159279;
+}
+
+@font-face {
+    font-family: "FSMeLight";
+    src: local("FSMeLight"), url("../fonts/FS_Me/FS Me-Light.otf") format("truetype");
+}
+
+@font-face {
+    font-family: "FSMeBold";
+    src: local("FSMeBold"), url("../fonts/FS_Me/FS Me-Bold.otf") format("truetype");
+}

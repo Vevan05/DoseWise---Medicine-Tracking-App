@@ -1,0 +1,143 @@
+.login_container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.login {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login h2 {
+    margin-bottom: 20px;
+    font-family: "FSMeBold", sans-serif;
+}
+
+.login_form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.login_form input {
+    margin: 10px 0;
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 25px;
+    background-color: #f2f8f7;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid rgb(236, 223, 223);
+}
+
+.login_form button {
+    padding: 12px;
+    margin-top: 25px;
+    background: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 50%;
+    align-self: center;
+    transition: 0.3s ease-in;
+}
+
+.login_form button:hover {
+    background: #159279;
+}
+
+.icons{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.icons div{
+    cursor: pointer;
+}
+
+.signup {
+    display: flex;
+    background-image: url("../Images/login.png");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 45%;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+
+p.head{
+    text-align: center;
+    font-size: 40px;  
+    font-family: "FSMeBold";
+    letter-spacing: 1px;
+    font-size: bold;
+  }
+
+  p.head a{
+    text-decoration: none;
+    color: black;
+  }
+
+  p{
+    text-align: center;
+    font-size: 13px;  
+    font-family: "FSMeLight";
+    letter-spacing: 1px;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .line {
+    flex-grow: 1;
+    height: 1px;
+    width: 200px;
+    background-color: #ccc;
+  }
+  
+  .text {
+    color: #666;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .footer{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer p{
+    margin-bottom: 1px;
+    font-family: "FSMeLight";
+    letter-spacing: normal;
+  }
+
+  .footer a {
+    color: #159279;
+}
+
+@font-face {
+    font-family: "FSMeLight";
+    src: local("FSMeLight"), url("../fonts/FS_Me/FS Me-Light.otf") format("truetype");
+}
+
+@font-face {
+    font-family: "FSMeBold";
+    src: local("FSMeBold"), url("../fonts/FS_Me/FS Me-Bold.otf") format("truetype");
+}
