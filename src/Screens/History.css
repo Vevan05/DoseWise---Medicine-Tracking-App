@@ -1,0 +1,46 @@
+.history-container {
+    text-align: center;
+}
+
+.history-table-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.history-table {
+    width: 90%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.history-table th {
+    background: #5DCAA9;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.history-table th, 
+.history-table td {
+    text-align: center;
+    padding: 15px;
+}
+
+.history-table tbody tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.history-table tbody tr:hover {
+    background: #e9ecef;
+    transition: 0.3s ease;
+}
+
+.no-history {
+    font-size: 18px;
+    color: #666;
+}

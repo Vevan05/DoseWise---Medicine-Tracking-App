@@ -23,9 +23,9 @@ const Scanner = () => {
                 <nav className="nav-links">
                     <span className="head">DoseWise</span>
                     <Link to="/user" className="nav-link">Medicine Schedule</Link>
-                    <a href="/a" className="nav-link">Prescription Status</a>
-                    <a href="/b" className="nav-link">Order History</a>
-                    <a href="/c" className="nav-link">Medicine History</a>
+                    <Link to="/status" className="nav-link">Prescription Status</Link>
+                    <Link to="/order" className="nav-link">Order History</Link>
+                    <Link to="/history" className="nav-link">Medicine History</Link>
                 </nav>
             </div>
 

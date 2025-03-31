@@ -56,3 +56,81 @@ p.head{
     letter-spacing: 1px;
     font-size: bold;
   }
+
+  .medicine-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.medicine-table {
+    width: 90%;
+    height: 60vh;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+.medicine-table.selected {
+  width: 50%;
+  margin: auto;
+}
+.medicine-table th {
+    background: #5DCAA9;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.medicine-table th.clickable-day:hover {
+    background: #3c866f;
+}
+
+.medicine-table th.selected-day {
+    background: #5DCAA9;
+    color: white;
+}
+
+.medicine-table td {
+    text-align: center;
+    padding: 15px;
+    vertical-align: top;
+}
+
+.medicine-list {
+    min-width: 120px;
+}
+
+.medicine-item {
+    background: #f8f9fa;
+    padding: 16px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.medicine-item:hover {
+    background: #e9ecef;
+}
+
+.remove-btn {
+  background: transparent;
+  border: none;
+  color: #dc3545;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-left: 8px;
+}
+
+.remove-btn:hover {
+  color: #c82333;
+  transform: scale(1.2);
+}

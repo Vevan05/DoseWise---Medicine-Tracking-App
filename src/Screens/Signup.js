@@ -23,7 +23,7 @@ const Signup = () => {
                             className={userType === 'Regular' ? 'selected' : ''} 
                             onClick={() => setUserType('Regular')}
                         >
-                        Patient
+                        User
                         </button>
                     
                         <button 
