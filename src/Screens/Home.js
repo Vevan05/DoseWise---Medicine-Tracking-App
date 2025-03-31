@@ -60,10 +60,6 @@ function Home() {
         <p>Ensuring Safety of Data</p>
         </li>
       </ul>
-
-      {/* <footer>
-        <p>Made by Vevan O Narain, Swayam Srivastava and Prabhav Gomase</p>
-      </footer> */}
     </div>
   );
 }
