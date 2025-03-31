@@ -1,30 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './User.css';
 
 const User = () => {
-    const [medicines, setMedicines] = useState([
-        { id: 1, name: 'Paracetamol', left: 10, days: ['Monday', 'Wednesday', 'Friday'] },
-        { id: 2, name: 'Ibuprofen', left: 5, days: ['Tuesday', 'Thursday', 'Saturday'] },
-        { id: 3, name: 'Amoxicillin', left: 7, days: ['Monday', 'Thursday', 'Sunday'] },
-        { id: 4, name: 'Cetirizine', left: 12, days: ['Tuesday', 'Friday', 'Sunday'] },
-        { id: 5, name: 'Metformin', left: 8, days: ['Monday', 'Wednesday', 'Saturday'] },
-        { id: 6, name: 'Aspirin', left: 15, days: ['Thursday', 'Friday', 'Sunday'] },
-        { id: 7, name: 'Omeprazole', left: 9, days: ['Monday', 'Wednesday', 'Saturday'] },
-        { id: 8, name: 'Losartan', left: 6, days: ['Tuesday', 'Thursday', 'Sunday'] }
-    ]);
-    
+    const [medicines, setMedicines] = useState([]);
 
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const today = daysOfWeek[new Date().getDay()];
-    const [selectedDay, setSelectedDay] = useState(null);
+    useEffect(() => {
+        loadMedicines();
+        window.addEventListener("storage", loadMedicines);
+        return () => window.removeEventListener("storage", loadMedicines);
+    }, []);
 
-    const toggleDayView = (day) => {
-        setSelectedDay(selectedDay === day ? null : day);
+    useEffect(() => {
+        const checkMedicineStatus = () => {
+            const now = new Date();
+            const currentTime = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
+
+            const medicineTimes = {
+                "Morning": "10:00",
+                "Afternoon": "15:00",
+                "Evening": "18:00",
+                "Night": "22:00",
+                "Midnight": "00:00"
+            };
+
+            medicines.forEach(med => {
+                med.timing.forEach(time => {
+                    if (medicineTimes[time] === currentTime) {
+                        alert(`⏰ Time to take ${med.name} (${med.dosage} dose)`);
+                    }
+                });
+
+                if (med.stock <= 3) {
+                    alert(`⚠️ Low stock alert! Only ${med.stock} doses left for ${med.name}.`);
+                }
+            });
+        };
+
+        const interval = setInterval(checkMedicineStatus, 60000);
+        return () => clearInterval(interval);
+    }, [medicines]);
+
+    const loadMedicines = () => {
+        setMedicines(JSON.parse(localStorage.getItem("medicines")) || []);
     };
 
     const removeMedicine = (id) => {
-        setMedicines(medicines.filter(medicine => medicine.id !== id));
+        const updatedMedicines = medicines.filter(med => med.id !== id);
+        localStorage.setItem("medicines", JSON.stringify(updatedMedicines));
+        setMedicines(updatedMedicines);
+    };
+
+    const markMedicineTaken = (id) => {
+        const updatedMedicines = medicines.map(med => 
+            med.id === id ? { ...med, stock: Math.max(med.stock - 1, 0) } : med
+        );
+        localStorage.setItem("medicines", JSON.stringify(updatedMedicines));
+        setMedicines(updatedMedicines);
     };
 
     return (
@@ -32,55 +64,47 @@ const User = () => {
             <div className="header">
                 <nav className="nav-links">
                     <span className="head">DoseWise</span>
-                    <Link to="/scanner" className="nav-link">Prescription Scanner</Link>
+                    <Link to="/scanner" className="nav-link">Medicine Scanner</Link>
                     <Link to="/status" className="nav-link">Prescription Status</Link>
                     <Link to="/order" className="nav-link">Order History</Link>
                     <Link to="/history" className="nav-link">Medicine History</Link>
                 </nav>
             </div>
 
-            <p className='head'>
-                {selectedDay 
-                    ? (selectedDay === today ? 'Today Medicine Schedule' : `${selectedDay} Medicine Schedule`)
-                    : 'Weekly Medicine Schedule'}
-            </p>
+            <p className='head'>Weekly Medicine Schedule</p>
 
             <div className="medicine-container">
-                <table className={`medicine-table ${selectedDay ? 'selected' : ''}`}>
+                <table className="medicine-table">
                     <thead>
                         <tr>
-                            {(selectedDay ? [selectedDay] : daysOfWeek).map(day => (
-                                <th 
-                                    key={day} 
-                                    className={selectedDay === day ? 'selected-day' : 'clickable-day'} 
-                                    onClick={() => toggleDayView(day)}
-                                >
-                                    {day}
-                                </th>
-                            ))}
+                            <th>Medicine</th>
+                            <th>Dosage</th>
+                            <th>Stock</th>
+                            <th>Time</th>
+                            <th>Action</th>
+                            <th>Medicine Taken</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            {(selectedDay ? [selectedDay] : daysOfWeek).map(day => (
-                                <td key={day} className="medicine-list">
-                                    {medicines
-                                        .filter(medicine => medicine.days.includes(day))
-                                        .map(med => (
-                                            <div key={med.id} className="medicine-item">
-                                                {med.name} ({med.left} left)
-                                                <button className="remove-btn" onClick={() => removeMedicine(med.id)}>❌</button>
-                                            </div>
-                                        ))
-                                    }
+                        {medicines.map(med => (
+                            <tr key={med.id}>
+                                <td>{med.name}</td>
+                                <td>{med.dosage}x per day</td>
+                                <td>{med.stock}</td>
+                                <td>{med.timing.join(", ")}</td>
+                                <td>
+                                    <button className="remove-btn" onClick={() => removeMedicine(med.id)}>❌</button>
                                 </td>
-                            ))}
-                        </tr>
+                                <td>
+                                    <button className="taken-btn" onClick={() => markMedicineTaken(med.id)}>✅</button>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
         </div>
     );
-}
+};
 
 export default User;

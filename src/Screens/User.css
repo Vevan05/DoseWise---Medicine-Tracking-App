@@ -72,10 +72,7 @@ p.head{
     overflow: hidden;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
-.medicine-table.selected {
-  width: 50%;
-  margin: auto;
-}
+
 .medicine-table th {
     background: #5DCAA9;
     color: white;
@@ -99,6 +96,7 @@ p.head{
     text-align: center;
     padding: 15px;
     vertical-align: top;
+
 }
 
 .medicine-list {
@@ -134,3 +132,27 @@ p.head{
   color: #c82333;
   transform: scale(1.2);
 }
+
+.taken-btn {
+  display: table-cell;
+  align-self: center;
+  background-color: white;
+  border: white;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 50%;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.taken-btn:hover {
+  background-color: #28a745;
+  color: white;
+}
+
+.taken-btn:hover i {
+  color: white;
+}
+

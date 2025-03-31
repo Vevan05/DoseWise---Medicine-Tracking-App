@@ -7,14 +7,44 @@ const Scanner = () => {
     const [showModal, setShowModal] = useState(false);
     const [medicineName, setMedicineName] = useState("");
     const [dosage, setDosage] = useState("");
-    const [timing, setTiming] = useState("");
+    const [stock, setStock] = useState("");
+    const [timing, setTiming] = useState([]);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const timeOptions = ["Morning", "Afternoon", "Evening", "Night", "Midnight"];
+
+    const toggleDropdown = () => {
+        setDropdownOpen(!dropdownOpen);
+    };
+
+    const handleTimingChange = (value) => {
+        setTiming(prev => 
+            prev.includes(value) ? prev.filter(t => t !== value) : [...prev, value]
+        );
+    };
 
     const handleAddMedicine = () => {
-        console.log("Medicine:", medicineName, "Dosage:", dosage, "Timing:", timing);
-        setShowModal(false);
-        setMedicineName("");
-        setDosage("");
-        setTiming("");
+        if (medicineName.trim() && dosage.trim() && timing.length > 0 && stock.trim()) {
+            const newMedicine = {
+                id: Date.now(),
+                name: medicineName,
+                dosage: dosage,
+                timing: timing,
+                stock: parseInt(stock, 10)
+            };
+
+            const storedMedicines = JSON.parse(localStorage.getItem("medicines")) || [];
+            storedMedicines.push(newMedicine);
+            localStorage.setItem("medicines", JSON.stringify(storedMedicines));
+
+            window.dispatchEvent(new Event("storage"));
+
+            setMedicineName("");
+            setDosage("");
+            setStock("");
+            setTiming([]);
+            setShowModal(false);
+        }
     };
 
     return (
@@ -69,11 +99,33 @@ const Scanner = () => {
                             value={dosage}
                             onChange={(e) => setDosage(e.target.value)}
                         />
+
+                        <div className="dropdown">
+                            <div className="dropdown-header" onClick={toggleDropdown}>
+                                {timing.length > 0 ? timing.join(", ") : "Select Timing"}
+                                <span className={`arrow ${dropdownOpen ? "open" : ""}`}>&#9662;</span>
+                            </div>
+                            {dropdownOpen && (
+                                <div className="dropdown-options">
+                                    {timeOptions.map((time) => (
+                                        <label key={time} className="dropdown-option">
+                                            <input
+                                                type="checkbox"
+                                                checked={timing.includes(time)}
+                                                onChange={() => handleTimingChange(time)}
+                                            />
+                                            {time}
+                                        </label>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
                         <input
-                            type="text"
-                            placeholder="Timing (e.g., Morning, Afternoon, Night)"
-                            value={timing}
-                            onChange={(e) => setTiming(e.target.value)}
+                            type="number"
+                            placeholder="Stock (number of doses available)"
+                            value={stock}
+                            onChange={(e) => setStock(e.target.value)}
                         />
                         <div className="modal-buttons">
                             <button onClick={handleAddMedicine}>Add</button>
