@@ -20,11 +20,12 @@ const Status = () => {
 
             <div className="header">
                 <nav className="nav-links">
-                    <span className='heads'>DoseWise</span>
+                <Link to = "/" className="head">DoseWise</Link>
                     <Link to="/scanner" className="nav-link">Medicine Scanner</Link>
                     <Link to="/user" className="nav-link">Medicine Schedule</Link>
                     <Link to="/order" className="nav-link">Order History</Link>
                     <Link to="/history" className="nav-link">Medicine History</Link>
+                    <Link to = "/" className="nav-link"> Logout </Link>
                 </nav>
             </div>
             <p className="head">Prescription Status</p>

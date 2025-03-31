@@ -55,6 +55,8 @@ p.head{
     font-family: "FSMeLight";
     letter-spacing: 1px;
     font-size: bold;
+    text-decoration: none;
+    color: #000000;
   }
 
   .medicine-container {
@@ -144,11 +146,11 @@ p.head{
   height: 32px;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s;
+  transition: 0.3s ease;
 }
 
 .taken-btn:hover {
-  background-color: #28a745;
+  transform: scale(1.2);
   color: white;
 }
 

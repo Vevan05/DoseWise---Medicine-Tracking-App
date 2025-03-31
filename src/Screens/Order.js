@@ -37,6 +37,7 @@ const Orders = () => {
                     <Link to="/scanner" className="nav-link">Prescription Scanner</Link>
                     <Link to="/status" className="nav-link">Prescription Status</Link>
                     <Link to="/history" className="nav-link">Medicine History</Link>
+                    <Link to="/" className="nav-link">Logout</Link>
                 </nav>
             </div>
 

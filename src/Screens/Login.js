@@ -22,7 +22,11 @@ const Login = () => {
         }
 
         localStorage.setItem("currentUser", JSON.stringify(user));
-        navigate('/user');
+        if(user.userType === "Doctor"){
+            navigate("/requests")
+        }else{
+            navigate('/user');
+        }
     };
 
     return (
@@ -32,9 +36,9 @@ const Login = () => {
                 <p>Login using Social Media</p>
 
                 <div className='icons'>
-                    <div><FaFacebook size={30} /></div>
-                    <div><BiLogoGmail size={30} /></div>
-                    <div><FaXTwitter size={30} /></div>
+                    <button onClick={() => window.open("https://www.facebook.com", "_blank")}><FaFacebook size={30} /></button>
+                    <button onClick={() => window.open("https://accounts.google.com", "_blank")}><BiLogoGmail size={30} /></button>
+                    <button onClick={() => window.open("https://twitter.com", "_blank")}><FaXTwitter size={30} /></button>
                 </div>
 
                 <div className="divider">

@@ -8,7 +8,6 @@ import { MdOutlineHealthAndSafety } from "react-icons/md";
 
 import {Link} from 'react-router-dom'
 
-
 import './Home.css';
 
 function Home() {
@@ -18,9 +17,9 @@ function Home() {
         <nav className = "nav-links">
           <span className = "head">DoseWise</span>
           
-          <a href = "/a" className = "nav-link">Medicine Schedule</a>
-          <a href = "/b" className = "nav-link">Order Tracking</a>
-          <a href = "/c" className = "nav-link">Medicines Sold</a>
+          <Link to = "/signup" className = "nav-link">Medicine Schedule</Link>
+          <Link to = "/signup" className = "nav-link">Order Tracking</Link>
+          <Link to = "/signup" className = "nav-link">Medicines Sold</Link>
         </nav>
 
         <div className = "buttons">

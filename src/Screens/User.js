@@ -63,11 +63,12 @@ const User = () => {
         <div className='user_container'>
             <div className="header">
                 <nav className="nav-links">
-                    <span className="head">DoseWise</span>
+                <Link to = "/" className="head">DoseWise</Link>
                     <Link to="/scanner" className="nav-link">Medicine Scanner</Link>
                     <Link to="/status" className="nav-link">Prescription Status</Link>
                     <Link to="/order" className="nav-link">Order History</Link>
                     <Link to="/history" className="nav-link">Medicine History</Link>
+                    <Link to = "/" className="nav-link"> Logout </Link>
                 </nav>
             </div>
 

@@ -9,6 +9,9 @@ import Scanner from './Screens/Scanner';
 import Status from './Screens/Status';
 import Orders from './Screens/Order';
 import MedicineHistory from './Screens/History';
+import Requests from './Screens/Requests';
+import Sold from './Screens/Sold';
+import View from './Screens/View'
 
 function App() {
   return (
@@ -22,8 +25,11 @@ function App() {
           <Route path="/user" element={<User/>} />
           <Route path="/scanner" element={<Scanner/>}/>
           <Route path="/status" element={<Status/>}/>
-          <Route path="/order" element={<Orders/>}></Route>
-          <Route path="/history" element={<MedicineHistory/>}></Route>
+          <Route path="/order" element={<Orders/>}/>
+          <Route path="/history" element={<MedicineHistory/>}/>
+          <Route path="/requests" element={<Requests/>}/>
+          <Route path="/sold" element={<Sold/>}/>
+          <Route path="/view" element={<View/>}/>
         </Routes>
       </div>
 

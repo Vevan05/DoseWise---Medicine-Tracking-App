@@ -58,19 +58,21 @@ const Signup = () => {
                 </form>
 
                 <div className='alt_signup'>
-                    <button className="google_signup">
+                    <button className="google_signup" onClick={() => window.open("https://accounts.google.com", "_blank")}>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png" alt="Google Logo" />
                         Signup with Google
                     </button>
-                    <button className="google_signup">
+                    <button className="google_signup" onClick={() => window.open("https://www.facebook.com", "_blank")}>
                         <img src="https://yt3.googleusercontent.com/RhsrKM2HugvjGkbHXmo93C-q3qZLJk9hzfeJHmproNh4qb6UA5cC--l0mTZ2QuM-yXF1wYijgw=s900-c-k-c0x00ffffff-no-rj" alt="Facebook Logo" />
                         Signup with Facebook
                     </button>
-                    <button className="google_signup">
+                    <button className="google_signup" onClick={() => window.open("https://twitter.com", "_blank")}>
                         <img src="https://img.freepik.com/premium-vector/new-twitter-logo-x-2023-twitter-x-logo-official-vector-download_691560-10797.jpg?semt=ais_hybrid" alt="Twitter Logo" />
                         Signup with Twitter
                     </button>
                 </div>
+
+
             </div>
         </div>
     );
